@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabinet de Maître Bertrand - Notaire International Européen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .map-container {
+            height: 400px;
+            width: 100%;
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 32px;
+            height: calc(100% - 32px);
+            width: 2px;
+            background: #3b82f6;
+        }
+        .confirmation-message {
+            display: none;
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-blue-800 text-white p-3 rounded-lg mr-4">
+                    <i class="fas fa-scale-balanced text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-blue-900">Cabinet de Maître Bertrand</h1>
+                    <p class="text-sm text-blue-600">Notaire International Européen</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#accueil" class="text-blue-900 font-medium hover:text-blue-700 transition">Accueil</a>
+                <a href="#expertise" class="text-blue-900 font-medium hover:text-blue-700 transition">Expertise</a>
+                <a href="#cabinet" class="text-blue-900 font-medium hover:text-blue-700 transition">Le Cabinet</a>
+                <a href="#contact" class="text-blue-900 font-medium hover:text-blue-700 transition">Contact</a>
+            </nav>
+            <button class="md:hidden text-blue-900">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Maître Mathieu Bertrand</h2>
+                <p class="text-xl mb-8">Notaire international avec 25 ans d'expérience au service de vos projets patrimoniaux transfrontaliers.</p>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="bg-white text-blue-900 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300 text-center">Prendre rendez-vous</a>
+                    <a href="#expertise" class="border-2 border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white hover:text-blue-900 transition duration-300 text-center">Nos domaines d'expertise</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="bg-white p-2 rounded-lg shadow-xl max-w-md">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Maître Mathieu Bertrand en costume professionnel" class="rounded-lg w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">Domaines d'Expertise</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">Fort de 25 ans d'expérience, notre cabinet vous accompagne dans toutes vos démarches notariales en France et à l'international.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
+                    <div class="bg-blue-100 p-6">
+                        <i class="fas fa-home text-blue-900 text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Droit Immobilier International</h3>
+                        <p class="text-gray-600">Acquisition, vente et gestion de biens immobiliers transfrontaliers avec une expertise des réglementations européennes.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
+                    <div class="bg-blue-100 p-6">
+                        <i class="fas fa-people-arrows text-blue-900 text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Successions Internationales</h3>
+                        <p class="text-gray-600">Gestion des successions complexes impliquant plusieurs pays, avec optimisation fiscale et respect des différentes législations.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
+                    <div class="bg-blue-100 p-6">
+                        <i class="fas fa-handshake text-blue-900 text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Contrats Internationaux</h3>
+                        <p class="text-gray-600">Rédaction et authentification de contrats commerciaux, matrimoniaux et familiaux avec dimension internationale.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
+                    <div class="bg-blue-100 p-6">
+                        <i class="fas fa-euro-sign text-blue-900 text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Optimisation Patrimoniale</h3>
+                        <p class="text-gray-600">Stratégies de protection et transmission de patrimoine pour clients internationaux, avec analyse des conventions fiscales.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
+                    <div class="bg-blue-100 p-6">
+                        <i class="fas fa-globe-europe text-blue-900 text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Droit Européen</h3>
+                        <p class="text-gray-600">Conseil sur les règlements européens en matière de successions, régimes matrimoniaux et reconnaissances mutuelles.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
+                    <div class="bg-blue-100 p-6">
+                        <i class="fas fa-building-flag text-blue-900 text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Investissements Transfrontaliers</h3>
+                        <p class="text-gray-600">Accompagnement juridique complet pour les investisseurs étrangers en France et les Français à l'étranger.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">Témoignages Clients</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">Ce que nos clients disent de notre expertise</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-10">
+
+                <div class="lg:w-2/3 space-y-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm relative">
+                        <div class="absolute -top-4 -left-4 bg-blue-600 text-white p-3 rounded-full">
+                            <i class="fas fa-quote-left text-xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"Maître Bertrand a géré notre succession internationale avec une expertise remarquable. Son approche multilingue et sa connaissance des différentes législations ont fait toute la différence."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client 1" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Sophie Martin</h4>
+                                <p class="text-gray-600 text-sm">Client depuis 2018</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm relative">
+                        <div class="absolute -top-4 -left-4 bg-blue-600 text-white p-3 rounded-full">
+                            <i class="fas fa-quote-left text-xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"L'accompagnement pour notre achat immobilier en Espagne a été irréprochable. L'équipe est réactive, professionnelle et maîtrise parfaitement les spécificités transfrontalières."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 2" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Thomas Dubois</h4>
+                                <p class="text-gray-600 text-sm">Client depuis 2020</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm relative">
+                        <div class="absolute -top-4 -left-4 bg-blue-600 text-white p-3 rounded-full">
+                            <i class="fas fa-quote-left text-xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"Une expertise remarquable pour notre succession franco-allemande. Maître Bertrand a su trouver des solutions innovantes pour optimiser notre situation."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client 3" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Élodie Schneider</h4>
+                                <p class="text-gray-600 text-sm">Client depuis 2019</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm relative">
+                        <div class="absolute -top-4 -left-4 bg-blue-600 text-white p-3 rounded-full">
+                            <i class="fas fa-quote-left text-xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"Très satisfait de l'accompagnement pour notre investissement en Portugal. Une approche claire et des conseils précieux pour sécuriser notre projet."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Client 4" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Pierre Lefèvre</h4>
+                                <p class="text-gray-600 text-sm">Client depuis 2021</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 5 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm relative">
+                        <div class="absolute -top-4 -left-4 bg-blue-600 text-white p-3 rounded-full">
+                            <i class="fas fa-quote-left text-xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-4">"Un professionnalisme exceptionnel pour notre contrat de mariage international. Des explications claires et une rédaction juridique impeccable."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Client 5" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Camille Rossi</h4>
+                                <p class="text-gray-600 text-sm">Client depuis 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="cabinet" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <h2 class="text-3xl font-bold text-blue-900 mb-6">Maître Mathieu Bertrand</h2>
+                    <p class="text-lg text-gray-600 mb-6">Titulaire d’un diplôme de l’Université de Paris obtenu en 1998, Maître Bertrand possède une expertise largement reconnue en matière de notariat international, avec une spécialisation dans la gestion des opérations transfrontalières au sein de l’Union européenne. </p>
+                    <p class="text-lg text-gray-600 mb-8">Membre de la Chambre des Notaires de Nantes ainsi que du Réseau Européen des Notaires, il participe activement à la diffusion des connaissances en intervenant régulièrement en qualité de conférencier sur les thématiques relatives au droit patrimonial international.</p>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-blue-900 mb-4">Parcours Professionnel</h3>
+                        <div class="space-y-8 relative">
+                            <!-- Timeline Item 1 -->
+                            <div class="timeline-item relative pl-16">
+                                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">1</div>
+                                <h4 class="font-bold text-blue-900">1998 - 2003</h4>
+                                <p class="text-gray-600">Notaire assistant à Paris, spécialisation en droit international privé</p>
+                            </div>
+                            
+                            <!-- Timeline Item 2 -->
+                            <div class="timeline-item relative pl-16">
+                                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">2</div>
+                                <h4 class="font-bold text-blue-900">2003 - 2010</h4>
+                                <p class="text-gray-600">Notaire associé à Lyon, développement du département international</p>
+                            </div>
+                            
+                            <!-- Timeline Item 3 -->
+                            <div class="timeline-item relative pl-16">
+                                <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">3</div>
+                                <h4 class="font-bold text-blue-900">Depuis 2010</h4>
+                                <p class="text-gray-600">Installation à Nantes et création du cabinet spécialisé en notariat européen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 bg-gray-100 p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6">Le Cabinet</h3>
+                    <p class="text-gray-600 mb-6">Notre cabinet se distingue par :</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Une équipe multilingue (français, anglais, allemand, espagnol)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Un réseau de correspondants notaires dans toute l'Europe</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Des solutions sur mesure pour les clients internationaux</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Une approche proactive et innovante du droit notarial</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-blue-900 mb-4">Nos Valeurs</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-lock text-blue-900"></i>
+                                </div>
+                                <span class="text-gray-700">Confidentialité</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-gavel text-blue-900"></i>
+                                </div>
+                                <span class="text-gray-700">Rigueur juridique</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-heart text-blue-900"></i>
+                                </div>
+                                <span class="text-gray-700">Écoute client</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-lightbulb text-blue-900"></i>
+                                </div>
+                                <span class="text-gray-700">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">Contactez-nous</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">Pour toute question ou prise de rendez-vous, notre équipe se tient à votre disposition.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2 bg-white p-8 rounded-xl shadow-sm">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6">Prendre rendez-vous</h3>
+                    <div id="confirmationMessage" class="confirmation-message">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-700 text-2xl mr-3"></i>
+                            <div>
+                                <h4 class="font-bold">Votre demande de rendez-vous a été prise en compte</h4>
+                                <p>Nous vous contacterons dans les plus brefs délais pour confirmer votre rendez-vous.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="rdvForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nom" class="block text-gray-700 font-medium mb-2">Nom</label>
+                                <input type="text" id="nom" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="prenom" class="block text-gray-700 font-medium mb-2">Prénom</label>
+                                <input type="text" id="prenom" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="telephone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                            <input type="tel" id="telephone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="sujet" class="block text-gray-700 font-medium mb-2">Sujet</label>
+                            <select id="sujet" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="immobilier">Immobilier international</option>
+                                <option value="succession">Succession internationale</option>
+                                <option value="contrat">Contrat transfrontalier</option>
+                                <option value="autre">Autre demande</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-800 transition duration-300 w-full">Envoyer la demande</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2 space-y-8">
+                    <div class="bg-white p-8 rounded-xl shadow-sm">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-6">Coordonnées</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-map-marker-alt text-blue-900"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-blue-900 mb-1">Adresse</h4>
+                                    <p class="text-gray-600">22 Rue des Halles<br>44000 Nantes, France</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-phone text-blue-900"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-blue-900 mb-1">Téléphone</h4>
+                                    <p class="text-gray-600">+33 6 44 68 08 98</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-envelope text-blue-900"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-blue-900 mb-1">Email</h4>
+                                    <p class="text-gray-600">notairemathieub@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-clock text-blue-900"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-blue-900 mb-1">Horaires</h4>
+                                    <p class="text-gray-600">Lundi - Vendredi : 9h - 18h<br>Sur rendez-vous uniquement</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold text-blue-900 mb-4">Localisation</h3>
+                        <div class="map-container rounded-lg overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2710.31002123914!2d-1.558823923184333!3d47.21282087114948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4805eea3c5a1d0a7%3A0x1c8b0c0b0b0b0b0b!2s22%20Rue%20des%20Halles%2C%2044000%20Nantes%2C%20France!5e0!3m2!1sfr!2sfr!4v1686758400000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white p-2 rounded-lg mr-3">
+                            <i class="fas fa-scale-balanced text-blue-900"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Cabinet de Maître Bertrand</h3>
+                    </div>
+                    <p class="text-blue-200 max-w-xs"> Notaire européen spécialisé en droit international, disposant de 25 années d’expérience dans la gestion et la sécurisation des patrimoines à dimension transfrontalière.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Navigation</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#accueil" class="text-blue-200 hover:text-white transition">Accueil</a></li>
+                            <li><a href="#expertise" class="text-blue-200 hover:text-white transition">Expertise</a></li>
+                            <li><a href="#cabinet" class="text-blue-200 hover:text-white transition">Le Cabinet</a></li>
+                            <li><a href="#contact" class="text-blue-200 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Services</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-blue-200 hover:text-white transition">Immobilier International</a></li>
+                            <li><a href="#" class="text-blue-200 hover:text-white transition">Successions Européennes</a></li>
+                            <li><a href="#" class="text-blue-200 hover:text-white transition">Contrats Transfrontaliers</a></li>
+                            <li><a href="#" class="text-blue-200 hover:text-white transition">Gestion Patrimoniale</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Réseaux</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-800 p-3 rounded-full hover:bg-blue-700 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-blue-800 p-3 rounded-full hover:bg-blue-700 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-blue-800 p-3 rounded-full hover:bg-blue-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-blue-200 mb-4 md:mb-0">© 2025 Cabinet de Maître Bertrand. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-blue-200 hover:text-white transition">Mentions légales</a>
+                    <a href="#" class="text-blue-200 hover:text-white transition">Politique de confidentialité</a>
+                    <a href="#" class="text-blue-200 hover:text-white transition">Plan du site</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for mobile menu toggle (would be expanded in a real implementation)
+        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+            const nav = document.querySelector('nav.hidden');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+                nav.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'right-4', 'bg-white', 'p-4', 'shadow-lg', 'rounded-lg', 'space-y-4', 'space-x-0');
+            } else {
+                nav.classList.add('hidden');
+                nav.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'right-4', 'bg-white', 'p-4', 'shadow-lg', 'rounded-lg', 'space-y-4', 'space-x-0');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script>
+        // Gestion de la soumission du formulaire
+        document.getElementById('rdvForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Masquer le formulaire
+            this.style.display = 'none';
+            
+            // Afficher le message de confirmation
+            document.getElementById('confirmationMessage').style.display = 'block';
+            
+            // Réinitialiser le formulaire (optionnel)
+            this.reset();
+            
+            // Vous pourriez ajouter ici un appel AJAX pour envoyer les données au serveur
+        });
+    </script>
+</body>
+</html>
